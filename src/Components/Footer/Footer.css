@@ -1,0 +1,13 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    outline:none;
+
+
+}
+
+.footer:focus {
+    outline: none !important;
+    box-shadow: none;
+  }
+  

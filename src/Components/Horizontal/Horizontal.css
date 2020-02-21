@@ -1,0 +1,84 @@
+@media only screen and (max-width: 600px) {
+  .promptResponse {
+
+    width: 80% !important;
+
+  }
+}
+
+.horizontalResponse {
+    flex: inherit;
+    border-bottom: solid 1px #0091ff;
+    border-top: none;
+    border-left: 0;
+    border-right: 0;
+    resize: none;
+    padding: 10px;
+    font-family: Heebo;
+    font-size: 13px;
+    color: white;
+    margin-right: 0.5%;
+    padding-right: 1.5%;
+    width: 40%;
+    background-color: #2C2E43 !important;
+    margin-top: 2%;
+  }
+  
+  .horizontalResponse:focus {
+    outline: none !important;
+    box-shadow: none;
+  }
+
+
+.lineContainer {
+    display: flex;
+  
+  }
+
+  
+.botMsg {
+    /* flex: inherit; */
+    /* border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px; */
+    /* border-radius: 20px; */
+    font-size: 15px;
+    text-align: right;
+    /* flex: 0 1 42px; */
+    background-color: rgba(255, 255, 255, 0.05);
+    
+    margin-right: 3.5%;
+    padding: 10px !important;
+    margin-top: 2%;
+    margin-bottom: 0;
+    width: fit-content;
+    color: white;
+    /* float: right;
+  display: inline;
+  clear: right; */
+  }
+
+  .promptResponse {
+    flex: inherit;
+    border-top: none;
+    border-left: 0;
+    border-right: 0;
+    resize: none;
+    padding: 10px;
+    font-family: Heebo;
+    font-size: 13px;
+    color: white;
+    margin-right: 0.5%;
+    padding-right: 1.5%;
+    width: 40%;
+    background-color: #393B4E !important;
+    margin-top: 2%;
+    width: 350px;
+    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+    text-align: center;
+  }
+
+  .promptResponse:focus {
+    outline: none !important;
+    box-shadow: none;
+  }
