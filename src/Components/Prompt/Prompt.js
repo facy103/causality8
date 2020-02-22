@@ -25,17 +25,17 @@ const Prompt=(props) => {
                         botMessege={props.botMessege}/>
                 <div className='clickableTextContainer'>
                 {alreadyAnswered ?
-                    Object.keys(obj.buttons).map( (btnId, idx) => 
+                    Object.keys(obj.buttons).map( (btnId) => 
                     {
                         if ( btnId === btnChoice ) {
-                        return <p className='chosenButton'>{obj.buttons[btnId]}</p>
+                        return <button className='chosenButton'>{obj.buttons[btnId]}</button>
                         } else 
                         {
-                        return <p className='notChosenButton'>{obj.buttons[btnId]}</p>
+                        return <button className='notChosenButton'>{obj.buttons[btnId]}</button>
                         }
                     }):
                     Object.keys(obj.buttons).map( (btnId, idx) => {
-                        return <button key={idx} onClick={ (elm)=> { props.setNextStep(btnId)
+                        return <button key={idx} onClick={ ()=> { props.setNextStep(btnId)
                             getBtnChoice(btnId);
                             setAnswerState(true);
                             setResponse(obj.buttons[btnId]);

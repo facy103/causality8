@@ -21,7 +21,6 @@ const PromptInput = (props) => {
     const [isAnswered,setAnswerState] = useState(false)
     const txtSubmit = (e) => {
         if (e.keyCode == 13 && e.shiftKey == false) {
-            console.log('test');
             e.preventDefault();
             setAnswerState(true);
             props.txtSubmit(e, props.ph)

@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
+import {Motion, spring} from 'react-motion';
 import './style.css';
 import Footer from "./Components/Footer/Footer.js"
 import Prompt from "./Components/Prompt/Prompt.js"
 import PromptInput from "./Components/Horizontal/PromptInput.js"
 import SummaryInner from "./Components/Prompts/SummaryInner.js"
 import questions from './DB/perfectDB';
-import {MyProvider, MyContext, MyConsumer} from './Contexts';
 import {findTitle, textTransform} from './mytools.js';
 
 
@@ -28,6 +28,7 @@ useEffect( ()=>{
 const scrollBottom = () => {
   let chatDivHeight = chatDivRef.current.clientHeight;
   chatContainerRef.current.scrollTop = chatDivHeight;
+
 }
 
 const txtSubmit = (e, ph) => {
@@ -53,11 +54,7 @@ const txtSubmit = (e, ph) => {
           var sourceValue = findTitle ( questions, swapRef);
           var targetValue = findTitle ( questions, swapObj [ swapRef ] );
       
-          //console.log(`replace ${questions [ sourceValue ].answer} with ${questions [ targetValue ].answer}`);
           questions [ sourceValue ].answer = questions [ targetValue ].answer ;
-          // console.log(textTransform(questions, questions[questionCount], questions[5].question, true));
-          //console.log(`Now: ${questions [ sourceValue ].answer}=${questions [ targetValue ].answer}`)
-          // console.log(terminalOutput);
         }
     }
 
@@ -76,19 +73,16 @@ const txtSubmit = (e, ph) => {
 
   const setNextStep=(value)=> {
     setIndex(value);
+
     let obj = questions[questionCount]; 
     let mirror = true;
     if ( obj.mirror == false ) { mirror=false; }
     questionCountStore.push(questionCount);
     newOutput = [...terminalOutput];
     newOutput.push({...questions[questionCount]});
-    if ('h1' in newOutput[newOutput.length-1])
-    {
-      console.log('h1 found');
-    }
-
     newOutput[newOutput.length-1].question = textTransform(questions, obj, obj.question, mirror);
-    setTerminalOutput(newOutput);
+    setTimeout(() => {setTerminalOutput( newOutput)}, 700);
+    // setTerminalOutput(newOutput);
   }
 
   const generateStep =()=> {
@@ -132,8 +126,6 @@ const txtSubmit = (e, ph) => {
     }
 
     return (
-      <MyContext.Provider value={questionCountStore[questionCount]}>
- 
         <div id="mypage">
         <div ref={chatContainerRef}id="chatContainer">
             <div ref= {chatDivRef} id="chatDiv"> 
@@ -143,8 +135,6 @@ const txtSubmit = (e, ph) => {
         <Footer setNextStep={setNextStep}/>
 
     </div>
-
-    </MyContext.Provider>
 )
 }
 
